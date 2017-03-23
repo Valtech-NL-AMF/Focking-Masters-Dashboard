@@ -1,0 +1,18 @@
+ul,
+ol {
+	padding: 0 0 1.25em 1.3em;
+}
+li {
+    padding: .2em 0;
+}
+.cms-content {
+    ul {
+        list-style: none;
+    }
+    ul li:before {
+        content: '\2022';
+        padding-right: 7px;
+        color: currentColor;
+        margin-left: -13px;
+    }
+}

@@ -1,0 +1,106 @@
+[class^=icon--],
+[class*= icon--] {
+    display: inline-block;
+	margin-right: 1em;
+}
+[class^=icon--]:before,
+[class*= icon--]:before,
+[class^=icon--]:after,
+[class*= icon--]:after {
+    content: '';
+    display: inline-block;  
+}
+.icon-right {
+    direction: rtl;
+	margin-right: 0;
+    margin-left: 1em;
+}
+[class*=icon--].u-icon-valigned:before {
+	vertical-align: middle;
+}
+.icon--only {
+	margin: 0;
+}
+
+
+
+.icon-- {
+	&arrow-right {
+		position: relative;
+		width: 18px;
+		height: 12px;
+		
+		&:before,
+		&:after {
+			position: absolute;
+		}
+
+		&:before {
+			right: 0;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 6px 0 6px 6px;
+			border-color: transparent transparent transparent currentColor;
+		}
+		&:after {
+			top: 50%;
+			transform: translateY(-50%);
+			width: 90%;
+			height: 2px;
+			background-color: currentColor;
+		}
+	}
+	&check {
+		position: relative;
+		width: 24px;
+		height: 18px;
+
+		&:before,
+		&:after {
+			transform-origin: left center;
+			position: absolute;
+			bottom: 0;
+			height: 3px;
+			background-color: currentColor;
+		}
+
+		&:before {
+			left: 12px;
+			width: 15px;
+			transform: rotate(-45deg);
+		}
+		&:after {
+			left: 13px;
+			width: 11px;
+			transform: rotate(-135deg);
+		}
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+[class^=svg-icon],
+[class*= svg-icon] {
+    fill: currentColor;
+	display: inline-block;
+	//transition: fill .2s ease-in-out;
+}
+
+.svg-icon__edit {
+	width: 14px;
+    height: 23px;
+}
+.svg-icon__check {
+	width: 24px;
+    height: 18px;
+}

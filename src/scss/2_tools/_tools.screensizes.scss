@@ -1,0 +1,53 @@
+@mixin mq($screensize) {
+    // min and max
+	// use: @include mq(xs) {...}
+    @if $screensize == xs {
+        @media all and (max-width: $xs-max) { @content; }
+    }
+    @if $screensize == sm {
+        @media all and (min-width: $sm-min) and (max-width: $sm-max) { @content; }
+    }
+    @if $screensize == md {
+        @media all and (min-width: $md-min) and (max-width: $md-max) { @content; }
+    }
+    @if $screensize == lg {
+        @media all and (min-width: $lg-min) and (max-width: $lg-max) { @content; }
+    }
+    @if $screensize == xl {
+        @media all and (min-width: $xl-min) { @content; }
+    }
+    // min
+	// use: @include mq(xs-min) {...}
+    @if $screensize == xs-min {
+        @media all and (min-width: $xs-min) { @content; }
+    }
+    @if $screensize == sm-min {
+        @media all and (min-width: $sm-min) { @content; }
+    }
+    @if $screensize == md-min {
+        @media all and (min-width: $md-min) { @content; }
+    }
+    @if $screensize == lg-min {
+        @media all and (min-width: $lg-min) { @content; }
+    }
+    @if $screensize == xl-min {
+        @media all and (min-width: $xl-min) { @content; }
+    }
+    // max
+	// use: @include mq(xs-max) {...}
+    @if $screensize == xs-max {
+        @media all and (max-width: $xs-max) { @content; }
+    }
+    @if $screensize == sm-max {
+        @media all and (max-width: $sm-max) { @content; }
+    }
+    @if $screensize == md-max {
+        @media all and (max-width: $md-max) { @content; }
+    }
+    @if $screensize == lg-max {
+        @media all and (max-width: $lg-max) { @content; }
+    }
+    @if $screensize == xl-max {
+        @media all and (max-width: $xl-max) { @content; }
+    }
+}

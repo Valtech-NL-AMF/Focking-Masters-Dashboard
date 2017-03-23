@@ -1,0 +1,39 @@
+// functional list (for navigation or other non-content components)
+.list-unstyled {
+	ul,ol {
+		padding: 0;
+		list-style: none;
+	}
+	li {
+		padding: 0;
+	}
+	a {
+		text-decoration: none;
+	}
+}
+
+// horizontal list
+.list-horizontal ul {
+    &:after {
+		@extend %clearfix;
+	}
+    li {
+        float: left;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    ul li {
+        float: none;
+    }
+}
+
+// horizontal display inline-block list
+.list-inlineblock li {
+    display: inline-block;
+    padding-top: 0;
+    padding-bottom: 0;
+    vertical-align: top;
+    ul li {
+        display: list-item;
+    }
+}

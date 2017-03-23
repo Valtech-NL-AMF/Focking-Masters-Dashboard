@@ -1,0 +1,49 @@
+.u-centered {
+    text-align: center;
+    font-size: 0;
+    [class*=col-] {
+        font-size: 1.6rem;
+        float: none;
+	    display: inline-block;
+	    vertical-align: top;
+        text-align: left;
+    }
+
+    &:not(.u-centered-flat) {
+        @each $screen-name, $min-width, $max-width in $screensizes {
+            @media all and (min-width: $min-width) and (max-width: $max-width) {
+                @each $col-name, $col-width in $col-sizes {
+                    @if $col-name == '20' {                        
+                        .col-#{$screen-name}-#{$col-name}:first-child:nth-last-child(6) ~ [class*=col-]:nth-child(3) {
+                            margin-right: 20%;
+                        }
+                        .col-#{$screen-name}-#{$col-name}:first-child:nth-last-child(6) {
+                            margin-right: 0;
+                            margin-left: 20%;
+                        }
+                        .col-#{$screen-name}-#{$col-name}:first-child:nth-last-child(7),
+                        .col-#{$screen-name}-#{$col-name}:first-child:nth-last-child(7) ~ [class*=col-],
+                        .col-#{$screen-name}-#{$col-name}:first-child:nth-last-child(8),
+                        .col-#{$screen-name}-#{$col-name}:first-child:nth-last-child(8) ~ [class*=col-] {
+                            width: 20.1%;
+                        }
+                    }
+                    @if $col-name == '25' {
+                        .col-#{$screen-name}-#{$col-name}:first-child:nth-last-child(5),
+                        .col-#{$screen-name}-#{$col-name}:first-child:nth-last-child(5) ~ [class*=col-],
+                        .col-#{$screen-name}-#{$col-name}:first-child:nth-last-child(6),
+                        .col-#{$screen-name}-#{$col-name}:first-child:nth-last-child(6) ~ [class*=col-] {
+                            width: 25.1%;
+                        }
+                    }
+                    @if $col-name == '33' {
+                        .col-#{$screen-name}-#{$col-name}:first-child:nth-last-child(4),
+                        .col-#{$screen-name}-#{$col-name}:first-child:nth-last-child(4) ~ [class*=col-] {
+                            width: 33.4%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

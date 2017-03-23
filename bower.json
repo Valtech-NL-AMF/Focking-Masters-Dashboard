@@ -1,0 +1,13 @@
+{
+  "name": "dashbaord",
+  "version": "0.0.1",
+  "authors": [
+    "Reina Zwarts"
+  ],
+  "description": "Labsproject Dashbaord Valtech",
+  "private": true,
+  "dependencies": {
+    "jquery": "jquery#2.1.4",
+    "slick-carousel": "^1.6.0"
+  }
+}

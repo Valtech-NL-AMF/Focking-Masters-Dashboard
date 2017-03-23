@@ -1,0 +1,52 @@
+// 1 settings
+@import "scss/1_settings/_settings.colors.scss";
+@import "scss/1_settings/_settings.fonts.scss";
+@import "scss/1_settings/_settings.screensizes.scss";
+@import "scss/1_settings/_settings.spacings.scss";
+
+// 2 tools
+@import "scss/2_tools/_tools.functions.scss";
+@import "scss/2_tools/_tools.mixins.scss";
+@import "scss/2_tools/_tools.screensizes.scss";
+
+
+// 3 generic
+//@import "scss/3_generic/
+@import "scss/3_generic/_generic.libs.scss";
+
+// 4 elements
+@import "scss/4_elements/_elements.document.scss";
+@import "scss/4_elements/_elements.media.scss";
+@import "scss/4_elements/_elements.anchors.scss";
+@import "scss/4_elements/_elements.headings.scss";
+@import "scss/4_elements/_elements.lists.scss";
+@import "scss/4_elements/_elements.text.scss";
+@import "scss/4_elements/_elements.forms.scss";
+@import "scss/4_elements/_elements.tables.scss";
+
+// 5 objects
+@import "scss/5_objects/_objects.grid.scss";
+@import "scss/5_objects/_objects.layout.scss";
+@import "scss/5_objects/_objects.lists.scss";
+@import "scss/5_objects/_objects.anchors.scss";
+@import "scss/5_objects/_objects.libs.scss";
+
+// 6 modules
+@import "scss/6_modules/_modules.buttons.scss";
+@import "scss/6_modules/_modules.icons.scss";
+@import "scss/6_modules/_modules.forms.scss";
+
+// 7 components
+/*@import "scss/7_components/_components.navigation.scss";
+@import "scss/7_components/_components.hero.scss";
+@import "scss/7_components/_components.question.scss";
+@import "scss/7_components/_components.result.scss";
+@import "scss/7_components/_components.advise.scss";*/
+@import "scss/7_components/_components.dashboard.scss";
+
+
+// 8 trumps
+//@import "scss/8_trumps/_trumps.grid.debug.scss";
+//@import "scss/8_trumps/_trumps.grid.centered.scss";
+//@import "scss/8_trumps/_trumps.grid.justified.scss";
+//@import "scss/8_trumps/_trumps.spacing.scss";

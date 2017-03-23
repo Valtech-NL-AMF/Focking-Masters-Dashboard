@@ -1,0 +1,14 @@
+img, embed, object, video, svg {
+	max-width: 100%;
+	height: auto;
+}
+img {
+	display: inline-block;
+    vertical-align: top;
+    border: none;
+    image-rendering: -moz-crisp-edges;
+    -ms-interpolation-mode: bicubic;
+}
+iframe {
+	width: 100%;
+}

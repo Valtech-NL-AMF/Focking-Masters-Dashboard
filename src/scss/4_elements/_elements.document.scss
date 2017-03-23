@@ -1,0 +1,42 @@
+*, *:after, *:before {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+html {
+	height: 100%;
+	font-size: 62.5%;
+	
+	@include mq(sm-max) {
+		font-size: 50%;
+	}
+	@include mq(xs-max) {
+		font-size: 40%;
+	}
+	-webkit-font-smoothing: antialiased;
+	-webkit-font-smoothing: subpixel-antialiased;
+	text-rendering: optimizeLegibility;
+	-webkit-text-size-adjust: 100%; /* prevent font scaling when orientation change */
+
+	overflow-y: scroll;
+	overflow: -moz-scrollbars-vertical;
+}
+body {
+	height: 100%;
+	font: 1.6rem/1.2 Arial, sans-serif;
+    font-weight: 300;
+    color: $color-indigoblue;
+	background-color: $color-coldgrey;
+}
+
+::selection {
+  background: $color-limegreen; /* WebKit/Blink Browsers */
+  color: #fff;
+}
+::-moz-selection {
+  background: $color-limegreen; /* Gecko Browsers */
+  color: #fff;
+}
