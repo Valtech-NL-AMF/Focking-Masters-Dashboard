@@ -7,8 +7,8 @@ namespace Dashboard.Controllers
 {
     public class HomeController : Controller
     {
-        private IList<Comment> _comments;
-        public HomeController()
+        private static readonly IList<Comment> _comments;
+        static HomeController()
         {
             _comments = new List<Comment>
             {
@@ -43,6 +43,16 @@ namespace Dashboard.Controllers
         public ActionResult Comments()
         {
             return Json(_comments);
+        }
+
+        [Route("comments/new")]
+        [HttpPost]
+        public ActionResult AddComment(Comment comment)
+        {
+            // Create a fake ID for this comment
+            comment.Id = _comments.Count + 1;
+            _comments.Add(comment);
+            return Content("Success :)");
         }
 
         public IActionResult Error()
