@@ -11,7 +11,6 @@
   <ItemGroup>
     <Content Include="Scripts\components\tutorial.jsx" />
     <Content Include="wwwroot\js\app.js" />
-    <Content Include="wwwroot\js\tutorial.jsx" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />

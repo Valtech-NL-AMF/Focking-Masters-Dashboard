@@ -22,7 +22,7 @@ namespace Dashboard.Controllers
                 {
                     Id = 2,
                     Author = "Pete Hunt",
-                    Text = "This is one comment"
+                    Text = "This is one comment, too"
                 },
                 new Comment
                 {

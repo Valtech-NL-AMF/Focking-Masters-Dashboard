@@ -1,8 +1,4 @@
-﻿let data = [
-    { id: 1, author: "Daniel Lo Nigro", text: "Hello ReactJS.NET World!" },
-    { id: 2, author: "Pete Hunt", text: "This is one comment" },
-    { id: 3, author: "Jordan Walke", text: "This is *another* comment" }
-];
+﻿
 
 class Comment extends React.Component{
     rawMarkup() {
@@ -69,7 +65,7 @@ class CommentForm extends React.Component {
                 />
                 <input
                     type="text"
-                    placeholder="Say something..."
+                    placeholder="Say something, please..."
                     value={this.state.text}
                     onChange={this.handleTextChange.bind(this)}
                 />

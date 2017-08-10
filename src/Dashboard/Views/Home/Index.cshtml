@@ -12,10 +12,27 @@
         submitUrl = Url.Action("AddComment"),
         pollInterval = 2000
     })
+
+    @Html.React("GoogleAnalytics", new
+   {
+
+   })
+
+    @Html.React("InstagramFeed", new
+   {
+
+   })
+
+
+
+    @*.net zet dit om naar een script ReactDOM.render met de props die je hem meegeeft.hij creert zeft een div met id, waar hij vervolgens het component in laadt *@
+
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.min.js"></script>
 <script src="@Url.Content("~/js/app.js")"></script>
     @Html.ReactInitJavaScript()
+
 </body>
 </html>

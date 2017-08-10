@@ -8,7 +8,154 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var data = [{ id: 1, author: "Daniel Lo Nigro", text: "Hello ReactJS.NET World!" }, { id: 2, author: "Pete Hunt", text: "This is one comment" }, { id: 3, author: "Jordan Walke", text: "This is *another* comment" }];
+//import { line as LineChart } from 'react-chartjs';
+
+var GoogleAnalytics = function (_React$Component) {
+    _inherits(GoogleAnalytics, _React$Component);
+
+    function GoogleAnalytics() {
+        _classCallCheck(this, GoogleAnalytics);
+
+        return _possibleConstructorReturn(this, (GoogleAnalytics.__proto__ || Object.getPrototypeOf(GoogleAnalytics)).apply(this, arguments));
+    }
+
+    _createClass(GoogleAnalytics, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(Chart, null);
+        }
+    }]);
+
+    return GoogleAnalytics;
+}(React.Component);
+
+;
+
+var Chart = function (_React$Component2) {
+    _inherits(Chart, _React$Component2);
+
+    function Chart() {
+        _classCallCheck(this, Chart);
+
+        return _possibleConstructorReturn(this, (Chart.__proto__ || Object.getPrototypeOf(Chart)).apply(this, arguments));
+    }
+
+    _createClass(Chart, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "button",
+                null,
+                "button man"
+            );
+        }
+    }]);
+
+    return Chart;
+}(React.Component);
+
+;
+"use strict";
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+//TODO: import API from instagram
+
+
+//less React Boilerplate and more JS than React.createClass
+
+
+var InstagramImage = function (_React$Component) {
+    _inherits(InstagramImage, _React$Component);
+
+    function InstagramImage() {
+        _classCallCheck(this, InstagramImage);
+
+        return _possibleConstructorReturn(this, (InstagramImage.__proto__ || Object.getPrototypeOf(InstagramImage)).apply(this, arguments));
+    }
+
+    _createClass(InstagramImage, [{
+        key: "render",
+        value: function render() {
+            return (
+                //getting the value from imageUrl/imageTitle from the InstagramFeed class
+                React.createElement(
+                    "figure",
+                    null,
+                    React.createElement("img", { src: "{this.props.imageUrl}", alt: "{this.props.imageTitle}" }),
+                    React.createElement(
+                        "figcaption",
+                        null,
+                        "Some text here ",
+                        React.createElement(
+                            "button",
+                            { type: "button", onClick: this._handleClick },
+                            "Click here"
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return InstagramImage;
+}(React.Component);
+
+;
+
+var InstagramFeed = function (_React$Component2) {
+    _inherits(InstagramFeed, _React$Component2);
+
+    function InstagramFeed(props) {
+        _classCallCheck(this, InstagramFeed);
+
+        var _this2 = _possibleConstructorReturn(this, (InstagramFeed.__proto__ || Object.getPrototypeOf(InstagramFeed)).call(this, props));
+
+        _this2.state = { data: [] };
+        return _this2;
+    }
+
+    _createClass(InstagramFeed, [{
+        key: "renderImage",
+        value: function renderImage(i) {
+            return React.createElement(InstagramImage, { value: i });
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "div",
+                null,
+                React.createElement(
+                    "h1",
+                    null,
+                    "Meanwhile on Instagram"
+                ),
+                this.renderImage(0)
+            );
+        }
+    }]);
+
+    return InstagramFeed;
+}(React.Component);
+
+;
+"use strict";
+"use strict";
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Comment = function (_React$Component) {
     _inherits(Comment, _React$Component);
@@ -127,7 +274,7 @@ var CommentForm = function (_React$Component3) {
                 }),
                 React.createElement("input", {
                     type: "text",
-                    placeholder: "Say something...",
+                    placeholder: "Say something, please...",
                     value: this.state.text,
                     onChange: this.handleTextChange.bind(this)
                 }),
