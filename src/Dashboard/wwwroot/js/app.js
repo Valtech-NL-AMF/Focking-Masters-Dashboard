@@ -55,7 +55,7 @@ var Chart = function (_React$Component2) {
 }(React.Component);
 
 ;
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -65,84 +65,78 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-//TODO: import API from instagram
+var ACCESS_TOKEN = '3294651.3ad618f.13120cc0f3474d2eba7a774f29edfe72';
 
+var feedUrl = 'https://api.instagram.com/v1/users/self/media/recent/?access_token=' + ACCESS_TOKEN;
 
-//less React Boilerplate and more JS than React.createClass
+var InstagramPost = function InstagramPost(_ref) {
+    var photos = _ref.photos;
 
+    return React.createElement(
+        'div',
+        null,
+        React.createElement(
+            'figure',
+            null,
+            React.createElement('img', { src: photo.images.standard_resolution.url, alt: 'something here' }),
+            React.createElement(
+                'figcaption',
+                null,
+                photo.caption.text
+            )
+        )
+    );
+};
 
-var InstagramImage = function (_React$Component) {
-    _inherits(InstagramImage, _React$Component);
+var InstagramFeed = function InstagramFeed(props) {
+    var InstagramPosts = props.photos.map(function (photo) {
+        return React.createElement(InstagramPost, { key: photo.id, photo: photo });
+    });
+    return React.createElement(
+        'div',
+        { 'data-carousel': true },
+        InstagramPosts
+    );
+};
 
-    function InstagramImage() {
-        _classCallCheck(this, InstagramImage);
+var InstagramApp = function (_React$Component) {
+    _inherits(InstagramApp, _React$Component);
 
-        return _possibleConstructorReturn(this, (InstagramImage.__proto__ || Object.getPrototypeOf(InstagramImage)).apply(this, arguments));
+    function InstagramApp(props) {
+        _classCallCheck(this, InstagramApp);
+
+        var _this = _possibleConstructorReturn(this, (InstagramApp.__proto__ || Object.getPrototypeOf(InstagramApp)).call(this, props));
+
+        _this.state = {
+            photos: []
+        };
+        return _this;
     }
 
-    _createClass(InstagramImage, [{
-        key: "render",
-        value: function render() {
-            return (
-                //getting the value from imageUrl/imageTitle from the InstagramFeed class
-                React.createElement(
-                    "figure",
-                    null,
-                    React.createElement("img", { src: "{this.props.imageUrl}", alt: "{this.props.imageTitle}" }),
-                    React.createElement(
-                        "figcaption",
-                        null,
-                        "Some text here ",
-                        React.createElement(
-                            "button",
-                            { type: "button", onClick: this._handleClick },
-                            "Click here"
-                        )
-                    )
-                )
-            );
-        }
-    }]);
+    _createClass(InstagramApp, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var _this2 = this;
 
-    return InstagramImage;
-}(React.Component);
-
-;
-
-var InstagramFeed = function (_React$Component2) {
-    _inherits(InstagramFeed, _React$Component2);
-
-    function InstagramFeed(props) {
-        _classCallCheck(this, InstagramFeed);
-
-        var _this2 = _possibleConstructorReturn(this, (InstagramFeed.__proto__ || Object.getPrototypeOf(InstagramFeed)).call(this, props));
-
-        _this2.state = { data: [] };
-        return _this2;
-    }
-
-    _createClass(InstagramFeed, [{
-        key: "renderImage",
-        value: function renderImage(i) {
-            return React.createElement(InstagramImage, { value: i });
+            $.ajax({
+                type: 'GET',
+                dataType: 'jsonp',
+                url: feedUrl,
+                success: function success(instaJson) {
+                    var photos = instaJson.data;
+                    _this2.setState({ photos: photos });
+                    $('[data-carousel]').slick();
+                }
+            });
         }
     }, {
-        key: "render",
+        key: 'render',
         value: function render() {
-            return React.createElement(
-                "div",
-                null,
-                React.createElement(
-                    "h1",
-                    null,
-                    "Meanwhile on Instagram"
-                ),
-                this.renderImage(0)
-            );
+            return React.createElement(InstagramFeed, { photos: this.state.photos });
         }
     }]);
 
-    return InstagramFeed;
+    return InstagramApp;
 }(React.Component);
 
 ;

@@ -1,39 +1,57 @@
-﻿//TODO: import API from instagram
+﻿
+const ACCESS_TOKEN = '3294651.3ad618f.13120cc0f3474d2eba7a774f29edfe72';
 
+const feedUrl = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${ACCESS_TOKEN}`
 
-//less React Boilerplate and more JS than React.createClass
-
-
-
-class InstagramImage extends React.Component {
-    render() {
-        return (
-            //getting the value from imageUrl/imageTitle from the InstagramFeed class
+const InstagramPost = ({ photos }) => {
+    return (
+        <div>
             <figure>
-                <img src="{this.props.imageUrl}" alt="{this.props.imageTitle}" />
-                <figcaption>Some text here <button type="button" onClick={this._handleClick} >Click here</button></figcaption>
+                <img src={photo.images.standard_resolution.url} alt="something here"/>
+                <figcaption>{photo.caption.text}</figcaption>
             </figure>
-        );
-    };
-};
+        </div>
+        )
+}
 
-class InstagramFeed extends React.Component {
+const InstagramFeed = (props) => {
+        const InstagramPosts = props.photos.map(photo => {
+            return <InstagramPost key={photo.id} photo={photo} />
+        });
+        return (
+
+            <div data-carousel>
+                {InstagramPosts}
+            </div>
+
+        )
+}
+
+class InstagramApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [],
-            clientID: '	8b12ed9c9aaa49a8bb9e9e2faad6a413' //Client ID for de_focking_masters account
+            photos: []
         };
     }
-    renderImage(i) {
-        return <InstagramImage imageTitle={i} />
+    componentWillMount() {
+        $.ajax({
+            type: 'GET',
+            dataType: 'jsonp',
+            url: feedUrl,
+            success: instaJson => {
+                let photos = instaJson.data;
+                this.setState({ photos });
+                $('[data-carousel]').slick();
+            }
+        });
+
     }
+
     render() {
         return (
-            <div>
-                <h1>Meanwhile on Instagram</h1>
-                {this.renderImage('awesomesauce')}
-            </div>
-        );
-    };
+            <InstagramFeed photos={this.state.photos} />
+        )
+    }
+
 };

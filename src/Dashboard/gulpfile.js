@@ -5,7 +5,9 @@ const gulp = require('gulp'),
     concat = require("gulp-concat"),
     cssmin = require("gulp-cssmin"),
     uglify = require("gulp-uglify"),
-    babel = require("gulp-babel");
+    babel = require("gulp-babel"),
+    bower = require("gulp-main-bower-files");
+
 
 const paths = {
     webroot: "./wwwroot/",
@@ -30,6 +32,12 @@ gulp.task("clean:css", (cb) => {
 
 gulp.task("clean", ["clean:js", "clean:css"]);
 
+gulp.task("main-bower-files", () => {
+    gulp.src('./bower.json')
+        .pipe(bower())
+        .pipe(concat("libs.js"))
+        .pipe(gulp.dest(paths.webroot + "js"))
+});
 gulp.task("min:js", () => {
     gulp.src([paths.js, "!" + paths.minJs], { base: "." })
         .pipe(concat(paths.concatJsDest))
